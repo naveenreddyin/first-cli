@@ -1,6 +1,9 @@
 use std::env;
+use tokio;
 
-fn main() {
+#[tokio::main]
+async fn main() {
+    println!("Asyncing....");
     let mut name = "India";
     let args: Vec<String> = env::args().collect();
 
@@ -9,4 +12,5 @@ fn main() {
     }
 
     println!("Hello, {name}");
+
 }
