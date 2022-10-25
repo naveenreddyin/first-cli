@@ -1,9 +1,12 @@
 use std::env;
 use tokio;
+use randog;
 
 #[tokio::main]
-async fn main() {
+async fn main()-> Result<(), Box<dyn std::error::Error>> {
     println!("Asyncing....");
+    let fact = randog::get_fact().await?;
+    println!("{}",fact.facts[0]) ;
     let mut name = "India";
     let args: Vec<String> = env::args().collect();
 
@@ -12,5 +15,5 @@ async fn main() {
     }
 
     println!("Hello, {name}");
-
+    Ok(())
 }
